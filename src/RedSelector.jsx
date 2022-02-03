@@ -1,21 +1,22 @@
 import { SpinButton } from '@fluentui/react';
 import React from 'react';
-import { useRecoilState } from 'recoil';
-import { red } from './atoms';
+import { ColorContext } from './ColorContext';
 import { spinnerStyle } from './spinnerStyles';
 
-export const RedSelector = () => {
-  const [redColor, setRedColor] = useRecoilState(red);
-  return (
-    <SpinButton
-      label="Red"
-      defaultValue="50"
-      min={0}
-      max={255}
-      step={1}
-      styles={spinnerStyle}
-      value={redColor}
-      onChange={(_, r) => { setRedColor(r); }}
-    />
-  );
-};
+export const RedSelector = () => (
+  <ColorContext.Consumer>
+    {({ r, setR }) => (
+      <SpinButton
+        label="Red"
+        defaultValue="50"
+        min={0}
+        max={255}
+        step={1}
+        styles={spinnerStyle}
+        value={r}
+        onChange={(_, v) => { setR(v); }}
+      />
+    )}
+  </ColorContext.Consumer>
+
+);
