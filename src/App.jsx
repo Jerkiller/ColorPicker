@@ -12,7 +12,10 @@ function App() {
     },
   };
 
-  // eslint-disable-next-line no-unused-vars
+  const [colors, setColors] = React.useState({
+    r: 50, g: 50, b: 50,
+  });
+
   const toHex = (rgb) => {
     let hex = Number(rgb).toString(16);
     if (hex.length < 2) {
@@ -21,6 +24,7 @@ function App() {
     return hex;
   };
 
+  const currentHex = () => `#${toHex(colors.r)}${toHex(colors.g)}${toHex(colors.b)}`;
   return (
     <div className="app">
       <div className='spinners'>
@@ -30,6 +34,8 @@ function App() {
           min={0}
           max={255}
           step={1}
+          value={colors.r}
+          onChange={(_, v) => { setColors({ ...colors, r: v }); }}
           styles={spinnerStyle}
         />
         <SpinButton
@@ -38,6 +44,8 @@ function App() {
           min={0}
           max={255}
           step={1}
+          value={colors.g}
+          onChange={(_, v) => { setColors({ ...colors, g: v }); }}
           styles={spinnerStyle}
         />
         <SpinButton
@@ -46,11 +54,13 @@ function App() {
           min={0}
           max={255}
           step={1}
+          value={colors.b}
+          onChange={(_, v) => { setColors({ ...colors, b: v }); }}
           styles={spinnerStyle}
         />
       </div>
       <div className='result'>
-        <h1 style={{ color: 'red' }}>RED</h1>
+        <h1 style={{ color: currentHex() }}>{currentHex()}</h1>
       </div>
     </div>
   );
