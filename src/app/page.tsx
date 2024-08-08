@@ -7,10 +7,10 @@ import { GreenSelector } from './GreenSelector';
 import { BlueSelector } from './BlueSelector';
 import { HexText } from './HexText';
 import { ColorContext } from './ColorContext';
-import './App.css';
+import './page.css';
 
-export const App = () => {
-  const [colors, setColors] = useState({ r: 25, g: 25, b: 25 });
+const App: React.FunctionComponent = () => {
+  const [colors, setColors] = useState<Color>({ r: 25, g: 25, b: 25 });
   return (
     <ColorContext.Provider value={{
       ...colors,
@@ -32,3 +32,4 @@ export const App = () => {
     </ColorContext.Provider>
   );
 };
+export default App;

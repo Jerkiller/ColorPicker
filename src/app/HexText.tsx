@@ -1,7 +1,5 @@
 import React from 'react';
 import { ColorContext } from './ColorContext';
-import { useRecoilValue } from 'recoil';
-import { hex } from '../atoms';
 
 const toHex = (rgb: number) => {
   let hex = rgb.toString(16);
