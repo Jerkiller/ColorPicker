@@ -1,19 +1,22 @@
+"use client";
+
 import React, { useState } from 'react';
+import { RecoilRoot } from 'recoil';
 import { RedSelector } from './RedSelector';
-import { BlueSelector } from './BlueSelector';
 import { GreenSelector } from './GreenSelector';
+import { BlueSelector } from './BlueSelector';
 import { HexText } from './HexText';
-import './App.css';
 import { ColorContext } from './ColorContext';
+import './App.css';
 
 export const App = () => {
   const [colors, setColors] = useState({ r: 25, g: 25, b: 25 });
   return (
     <ColorContext.Provider value={{
       ...colors,
-      setR: (v) => { setColors({ ...colors, r: v }); },
-      setG: (v) => { setColors({ ...colors, g: v }); },
-      setB: (v) => { setColors({ ...colors, b: v }); },
+      setR: (v: number) => { setColors({ ...colors, r: v }); },
+      setG: (v: number) => { setColors({ ...colors, g: v }); },
+      setB: (v: number) => { setColors({ ...colors, b: v }); },
     }}
     >
       <div className="app">
