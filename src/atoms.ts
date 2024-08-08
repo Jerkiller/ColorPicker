@@ -18,8 +18,8 @@ export const blue = atom({
   default: 25,
 });
 
-const toHex = (rgb) => {
-  let hex = Number(rgb).toString(16);
+const toHex = (rgb: number) : string => {
+  let hex = rgb.toString(16);
   if (hex.length < 2) {
     hex = `0${hex}`;
   }

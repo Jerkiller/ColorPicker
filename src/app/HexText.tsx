@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { hex } from './atoms';
+import { hex } from '../atoms';
 
-export const HexText = () => {
+export const HexText: React.FunctionComponent = () => {
   const hexText = useRecoilValue(hex);
   return (
     <h1 style={{ color: hexText }}>{hexText}</h1>
